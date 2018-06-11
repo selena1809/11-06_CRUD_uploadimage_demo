@@ -1,0 +1,3 @@
+class LoveDay < ApplicationRecord
+
+end

@@ -1,0 +1,26 @@
+
+<%= simple_form_for(@item, html: {multipart: true}) do |f| %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name%>
+</div>
+
+<%= f.fields_for :item_photos do |p|%>
+ <%= render 'item_photo_fields', f: p %>
+<!-- <div class="field">
+  <%#= p.label :photo%><br>
+  <%#= p.file_field :photo, multiple: true,class: "upload-image"%>
+</div>  -->
+<%end%>
+
+<div class="">
+  <%= link_to_add_association 'Add Item', f, :item_photos %>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit %>
+</div>
+<% end %>

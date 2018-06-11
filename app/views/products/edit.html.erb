@@ -1,0 +1,10 @@
+<h1>Create new product</h1>
+<%= simple_form_for @product,method: :put, url:product_path do |f|%>
+  <%= f.input :name, placeholder: 'Enter name'%>
+  <%= f.input :quantity%>
+  <%= f.input :price%>
+    <%= f.input :image, as: :file%>
+    <%= f.input :status, as: :radio_buttons,
+    collection: ['true', 'false'] %>
+    <%= f.button :submit%>
+<%end%>
